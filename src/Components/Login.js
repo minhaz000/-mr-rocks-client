@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Header(props) {
+function Login(props) {
     return (
         <div>
-            heder 
+            
         </div>
     );
 }
 
-export default Header;
+export default Login;
