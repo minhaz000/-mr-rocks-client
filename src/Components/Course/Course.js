@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Login(props) {
+function Course(props) {
     return (
         <div>
-            login
+            alll cuse 
         </div>
     );
 }
 
-export default Login;
+export default Course;

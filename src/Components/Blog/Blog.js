@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Login(props) {
+function Blog(props) {
     return (
         <div>
-            login
+            blog
         </div>
     );
 }
 
-export default Login;
+export default Blog;

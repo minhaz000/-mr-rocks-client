@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Login(props) {
+function SideBar(props) {
     return (
         <div>
-            login
+            side nav 
         </div>
     );
 }
 
-export default Login;
+export default SideBar;
