@@ -4,8 +4,8 @@ import SideBar from './SideBar';
 
 function CourseMain(props) {
     return (
-        <div>
-            <SideBar> </SideBar>
+        <div className='row' style={{ minHeight :"85vh" }}>
+            <SideBar > </SideBar>
             <Outlet></Outlet>
         </div>
     );

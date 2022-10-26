@@ -8,6 +8,8 @@ import Login from './Components/Login';
 import Blog from './Components/Blog/Blog';
 import FAQ from './Components/FAQ/FAQ';
 import Main from './layout/Main';
+import Err404 from './404';
+import Register from './Components/Register';
 
 function App(props) {
   
@@ -33,6 +35,10 @@ function App(props) {
                   element: <Login></Login>
                 },
                 {
+                  path: "/register",
+                  element: <Register> </Register>
+                },
+                {
                   path: "/course",
                   element: <CourseMain> </CourseMain>,
                   children: [
@@ -46,6 +52,10 @@ function App(props) {
                               }
                   ]
                 },
+                {
+                  path : "/*",
+                  element: <Err404></Err404>
+                }
       ]
     },
   ]);

@@ -1,0 +1,49 @@
+.login{
+  width: 40vw;
+  min-height: 72vh;
+  margin-top: 100px;
+}
+.home{
+  min-height: 80vh;
+}
+.hero-img{
+  width: 350px;
+  margin-left: 80px;
+  margin-top: 50px;
+
+}
+.hero-text{
+  margin-top: 150px;
+}
+.Course-menu{
+  margin-top: 80px;
+}
+.Course-menu li {
+ text-align: center;  
+ padding: 10px;
+ margin: 5px 0px;
+ border-radius: 5px;
+ background-color: #a4e3da;
+
+ 
+
+}
+.Course-menu li:hover {
+  cursor: pointer;
+ background-color: #40a7a2; 
+ transition: .5s; 
+
+}
+
+.err404{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+ align-items: center;
+}
+.err404 img {
+ width: 30vw;
+
+ 
+
+}
