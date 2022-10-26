@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Login(props) {
-    return (
+    return ( <div className="row">
+        <div className="col-8 col-md-4 mx-3"> <img className=' img-fluid ms-5 mt-5' src="/img/Fingerprint-bro.png" alt="" /></div>
         <div className='container my-5 login'>
             <h2 className=' text-center text-capitalize mb-5'> Log in </h2>
             <form className="row g-3">
@@ -36,6 +37,7 @@ function Login(props) {
 
   
 </form>
+        </div>
         </div>
     );
 }

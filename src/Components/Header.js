@@ -5,7 +5,7 @@ function Header(props) {
         <nav className="navbar navbar-expand-lg bg-light">
   <div className="container">
     <Link className="navbar-brand" to="/">
-      Navbar
+     <img className='logo' src="/img/logoFinal.png" alt="" />
     </Link>
     <button
       className="navbar-toggler"
