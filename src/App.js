@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { createBrowserRouter, RouterProvider, Route, } from "react-router-dom";
+import React from 'react';
+import { createBrowserRouter, RouterProvider,  } from "react-router-dom";
 import Course from './Components/Course/Course';
 import CourseMain from './Components/Course/CourseMain';
 import Details from './Components/Course/Details';
@@ -12,8 +12,8 @@ import Err404 from './404';
 import Register from './Components/Register';
 
 function App(props) {
-  
-  const router = createBrowserRouter([
+const url = "https://server-assignment-10.vercel.app"
+  const router =  createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
@@ -44,11 +44,13 @@ function App(props) {
                   children: [
                               {
                                 path:"",
-                                element: <Course></Course>
+                                element: <Course></Course>,
+                                loader : async () =>fetch(`${url}/courses`)
                               },
                               {
                                 path: ":courseId",
-                                element: <Details> </Details>
+                                element: <Details> </Details>,
+                                loader : async ({ params }) =>fetch(`${url}/course/${params.courseId}`)
                               }
                   ]
                 },
