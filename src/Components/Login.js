@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/UserContext';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function Login(props) {
     const [getUserData , setGetUserData] = 
@@ -16,7 +16,7 @@ function Login(props) {
     const HandleSubmit = (e)=>{
         e.preventDefault();
         emailLogin(getUserData).then(res => {
-
+            toast.success(" Login Successfully " )
         })
         .catch( err=> toast.error(err.message ) )
 
@@ -24,13 +24,13 @@ function Login(props) {
 
     const HandleGoogleLogin = (event)=>{
         event.preventDefault();
-        googleLogin().then( res => console.log( res) )
+        googleLogin().then( res => toast.success(" Login Successfully " ) )
         .catch( err=> toast.error(err.message ) )
 
     }
     const HandleGitLogin = (event)=>{
         event.preventDefault();
-        gitLogin().then( res => console.log( res) )
+        gitLogin().then( res =>toast.success(" Login Successfully " ) )
         .catch( err=> toast.error(err.message ) )
     }
     const notify = () => toast('Here is your toast.');
@@ -71,7 +71,7 @@ function Login(props) {
 </form>
         </div>
         <button onClick={notify}>Make me a toast</button>
-        <Toaster position="top-right"reverseOrder={false}/>
+      
         </div>
     );
 }

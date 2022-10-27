@@ -10,6 +10,9 @@ import FAQ from './Components/FAQ/FAQ';
 import Main from './layout/Main';
 import Err404 from './404';
 import Register from './Components/Register';
+import Primium from './Components/premium/Primium';
+import PrivateRoute from './privateRoute/PrivateRoute'
+import  { Toaster } from 'react-hot-toast';
 
 function App(props) {
 const url = "https://server-assignment-10.vercel.app"
@@ -39,6 +42,11 @@ const url = "https://server-assignment-10.vercel.app"
                   element: <Register> </Register>
                 },
                 {
+                  path: "/checkout/:courseId",
+                  element: <PrivateRoute>  <Primium> </Primium> </PrivateRoute>,
+                  loader : async ({ params }) =>fetch(`${url}/course/${params.courseId}`)
+                },
+                {
                   path: "/course",
                   element: <CourseMain> </CourseMain>,
                   children: [
@@ -65,6 +73,7 @@ const url = "https://server-assignment-10.vercel.app"
     <div>
 
 
+<Toaster position="top-center"reverseOrder={false}/>
         <RouterProvider router={router} /> 
     </div> 
   );

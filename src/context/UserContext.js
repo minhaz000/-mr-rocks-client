@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import { useState } from 'react';
 import {app} from '../firebase/firebase.config'
-import {getAuth, GithubAuthProvider, GoogleAuthProvider,createUserWithEmailAndPassword, signInWithPopup,signInWithEmailAndPassword, onAuthStateChanged, updateProfile } from 'firebase/auth'
+import {getAuth, GithubAuthProvider, GoogleAuthProvider,createUserWithEmailAndPassword, signInWithPopup,signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from 'firebase/auth'
 import { useEffect } from 'react';
 const AuthContext = createContext() 
 function UserContext(props) {
@@ -29,6 +29,9 @@ function UserContext(props) {
     const Update = (user)=>{
         return updateProfile( auth.currentUser ,{displayName: user.name , photoURL:user.photo })
     }
+    const logOut = ()=>{
+       return signOut(auth)
+    }
 
  useEffect( ()=>{
     const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
@@ -38,7 +41,7 @@ function UserContext(props) {
 
  } ,[])
 
-const contextInfo={darkMood, user, setDarkMood  ,googleLogin ,gitLogin,emailLogin , emailSignUp , Update}
+const contextInfo={darkMood, user, setDarkMood  ,googleLogin ,gitLogin,emailLogin , emailSignUp , Update,logOut}
     return (
         <AuthContext.Provider value={contextInfo}> 
             {props.children}
