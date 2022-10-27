@@ -8,6 +8,7 @@ function UserContext(props) {
 // Primary  States 
     const [darkMood,setDarkMood] = useState(false)
     const [user , setUser] =useState(null)
+    const [loading , setLoading] =useState(true)
     const auth = getAuth(app)
     const googleProvider = new GoogleAuthProvider();
     const gitProvider = new GithubAuthProvider()
@@ -35,13 +36,13 @@ function UserContext(props) {
 
  useEffect( ()=>{
     const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
-        setUser(currentUser);
+        setUser(currentUser); setLoading(false)
     } )
     return ()=>  unSubscribe()
 
  } ,[])
 
-const contextInfo={darkMood, user, setDarkMood  ,googleLogin ,gitLogin,emailLogin , emailSignUp , Update,logOut}
+const contextInfo={darkMood, user, setDarkMood  ,googleLogin ,gitLogin,emailLogin , emailSignUp , Update,logOut, loading}
     return (
         <AuthContext.Provider value={contextInfo}> 
             {props.children}
