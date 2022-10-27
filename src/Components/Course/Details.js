@@ -13,7 +13,8 @@ function Details(props) {
            
          <div ref={ref} className=' my-5'>
          <h3 className='text-primary text-center'>{data.title}  </h3>
-         <img src={ data.thumbnail} alt="" />
+         <div className="container">  <img className=' img-fluid my-5' src={ data.thumbnail} alt="" /></div>
+        
                 <p><b>Des : </b> {data.description}  </p>
                 <p><b>Price : </b> {data.price}  </p>
                 <p><b>Status : </b> {data.enroll_status}  </p>
