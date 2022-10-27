@@ -1,5 +1,5 @@
 import React ,{ useContext, useState }from 'react';
-import { Link} from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/UserContext';
 import toast  from 'react-hot-toast';
 
@@ -7,7 +7,9 @@ function Register(props) {
     const [getUserData , setGetUserData] = 
     useState({email:"",password:"",name:"",photo:"",cpassword:"" }) 
     const {googleLogin,gitLogin,emailSignUp,Update} = useContext(AuthContext)
-   
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     const HandleChange = (event)=>{
         const name = event.target.name
         const value = event.target.value
@@ -16,7 +18,7 @@ function Register(props) {
     const HandleSubmit = (e)=>{
         e.preventDefault(); 
         emailSignUp(getUserData).then(res => {
-            Update(getUserData).then( ()=> toast.success(" Sing Up Successfully " ) ) 
+            Update(getUserData).then( ()=>{ toast.success(" Sing Up Successfully " ); navigate(from , {replace :true}) }) 
         } )
         .catch( err=> toast.error(err.message ) )
        
@@ -26,13 +28,13 @@ function Register(props) {
 
     const HandleGoogleLogin = (event)=>{
         event.preventDefault();
-        googleLogin().then( res => toast.success(" Sing Up Successfully " ) )
+        googleLogin().then( res => {toast.success(" Login Successfully " ) ;navigate(from , {replace :true})})
         .catch( err=> toast.error(err.message ) )
 
     }
     const HandleGitLogin = (event)=>{
         event.preventDefault();
-        gitLogin().then( res => toast.success(" Sing Up Successfully " ) )
+        gitLogin().then( res => {toast.success(" Login Successfully " ) ;navigate(from , {replace :true})} )
         .catch( err=> toast.error(err.message ) )
     }
   return (
