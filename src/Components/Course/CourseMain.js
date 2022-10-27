@@ -1,5 +1,5 @@
 import React from 'react';
-import {Outlet, useLoaderData} from 'react-router-dom'
+import {Outlet} from 'react-router-dom'
 import SideBar from './SideBar';
 
 function CourseMain(props) {

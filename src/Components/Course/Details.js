@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-
+import Pdf from "react-to-pdf";
 function Details(props) {
     const data = useLoaderData()
-   
+    const ref = React.createRef();
     return (
         <div className='col-12 col-md-8 col-9'>
-         <div className=' my-5'>
+            <Pdf targetRef={ref} filename={"course-"+data.name}>
+        {({ toPdf }) => <button className='btn btn-info float-end mt-4 text-white' onClick={toPdf}>Dwoload PDF </button>}
+      </Pdf>
+
+           
+         <div ref={ref} className=' my-5'>
          <h3 className='text-primary text-center'>{data.title}  </h3>
          <img src={ data.thumbnail} alt="" />
                 <p><b>Des : </b> {data.description}  </p>
